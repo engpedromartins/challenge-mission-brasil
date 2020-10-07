@@ -15,6 +15,16 @@ class CadastroProduto extends Component {
     this.state = {
       data: [],
     };
+    this.handleSendProduct = this.handleSendProduct.bind(this);
+  }
+
+  handleSendProduct() {
+    let products = this.state.data;
+    this.props.history.push({
+      pathname: process.env.PUBLIC_URL + `/listaproduto`,
+      search: "",
+      number: { products },
+    });
   }
   render() {
     return (
@@ -98,7 +108,9 @@ class CadastroProduto extends Component {
                   </button>
                   <div>
                     <small>
-                      <a href="#">Deseja ver a lista de produtos?</a>
+                      <a onClick={this.handleSendProduct}>
+                        Deseja ver a lista de produtos?
+                      </a>
                     </small>
                   </div>
                 </div>
