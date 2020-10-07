@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-
+import { FaCartPlus } from "react-icons/fa";
 class CadastroProduto extends Component {
   constructor(props) {
     super(props);
@@ -26,11 +26,16 @@ class CadastroProduto extends Component {
           <li key={key}>
             <div className="cards-item">
               <div className="cards-item-aligment">
-                <div className="style-cards"></div>
-                {item.name}
-                <br />
-                {item.price}
+                <span>{item.name}</span>
+                <small>{item.price}</small>
               </div>
+              <small>
+                <a>
+                  <FaCartPlus />
+                  Adicionar ao carrinho{" "}
+                </a>
+              </small>
+              <hr />
             </div>
           </li>
         );

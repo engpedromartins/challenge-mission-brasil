@@ -80,6 +80,9 @@ label {
       color: cornflowerblue;
     }
   }
+  ul {
+    padding: 0;
+  }
 }
 .content {
   border: 1px#1890ff solid;
@@ -89,4 +92,35 @@ label {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+.cards-item {
+  display: flex;
+  flex-direction: column;
+  small {
+    margin: 0;
+  }
+  svg {
+    margin-right: 10px;
+  }
+}
+.cards-item-aligment {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: baseline;
+
+  small {
+    margin: 0;
+  }
+  span {
+    font-size: 20px;
+    width: 80%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+.style-cards {
+}
+a {
+  cursor: pointer;
 }
