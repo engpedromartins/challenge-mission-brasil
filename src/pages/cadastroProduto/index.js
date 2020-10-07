@@ -23,7 +23,7 @@ class CadastroProduto extends Component {
     this.props.history.push({
       pathname: process.env.PUBLIC_URL + `/listaproduto`,
       search: "",
-      number: { products },
+      list: { products },
     });
   }
   render() {
@@ -51,7 +51,7 @@ class CadastroProduto extends Component {
               let price = fields.price;
               let product = [name, price];
               this.setState({
-                data: [...this.state.data, product],
+                data: [...this.state.data, { name: name, price: price }],
               });
 
               alert("Produto adicionado com sucesso");
