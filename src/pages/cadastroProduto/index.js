@@ -109,7 +109,7 @@ class CadastroProduto extends Component {
                   <div>
                     <small>
                       <a onClick={this.handleSendProduct}>
-                        Deseja ver a lista de produtos?
+                        Ir para lista de produtos
                       </a>
                     </small>
                   </div>

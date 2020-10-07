@@ -6,7 +6,9 @@ class CadastroProduto extends Component {
 
     this.state = {
       listProducts: "",
+      productsSelected: "",
     };
+    this.navigationToCart = this.navigationToCart.bind(this);
   }
   componentDidMount() {
     if (this.props.location.list) {
@@ -17,6 +19,27 @@ class CadastroProduto extends Component {
         listProducts: products,
       });
     }
+  }
+
+  handleAdd(valueName, valuePrice, valueKey) {
+    let name = valueName;
+    let price = valuePrice;
+    let key = valueKey;
+
+    this.state({
+      productsSelected: [
+        ...this.state.productsSelected,
+        { key: key, name: name, price: price },
+      ],
+    });
+  }
+  navigationToCart() {
+    let productsSelected = this.state.productsSelected;
+    this.props.history.push({
+      pathname: process.env.PUBLIC_URL + `/carrinho`,
+      search: "",
+      list: { productsSelected },
+    });
   }
 
   render() {
@@ -30,7 +53,7 @@ class CadastroProduto extends Component {
                 <small>{item.price}</small>
               </div>
               <small>
-                <a>
+                <a onClick={() => this.handleAdd(item.name, item.pricem, key)}>
                   <FaCartPlus />
                   Adicionar ao carrinho{" "}
                 </a>
@@ -46,6 +69,11 @@ class CadastroProduto extends Component {
         <h1>Lista de Produtos</h1>
         <div className="content">
           <ul>{lista}</ul>
+        </div>
+        <div>
+          <small>
+            <a onClick={this.navigationToCart}>Ir para o carrinho</a>
+          </small>
         </div>
       </div>
     );
