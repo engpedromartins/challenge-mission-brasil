@@ -44,15 +44,23 @@ class CadastroProduto extends Component {
   }
 
   render() {
+    const locale = "pt-BR";
+    const currency = "BRL";
+    const fullCurrencyFormat = new Intl.NumberFormat(locale, {
+      style: "currency",
+      currency: currency,
+    });
     let list = this.props.location.list.products;
     if (list) {
       var showList = list.map((item, key) => {
+        let price = fullCurrencyFormat.format(item.price);
+
         return (
           <li key={key}>
             <div className="cards-item">
               <div className="cards-item-aligment">
                 <span>{item.name}</span>
-                <small>{item.price}</small>
+                <small>{price}</small>
               </div>
               <small>
                 <a onClick={() => this.handleAdd(item.name, item.price, key)}>

@@ -10,16 +10,25 @@ class Carrinho extends Component {
   componentDidMount() {}
 
   render() {
+    const locale = "pt-BR";
+    const currency = "BRL";
+    const fullCurrencyFormat = new Intl.NumberFormat(locale, {
+      style: "currency",
+      currency: currency,
+    });
+
     var order = this.props.location.list.productsSelected;
 
     if (order) {
       var orderResume = order.map((item, key) => {
+        let price = fullCurrencyFormat.format(item.price);
+
         return (
           <li key={key}>
             <div className="cards-item">
               <div className="cards-item-aligment">
                 <span>{item.name}</span>
-                <small>{item.price}</small>
+                <small>{price}</small>
               </div>
             </div>
           </li>
@@ -27,13 +36,6 @@ class Carrinho extends Component {
       });
     }
     let orderTotal = 0;
-
-    const locale = "pt-BR";
-    const currency = "BRL";
-    const fullCurrencyFormat = new Intl.NumberFormat(locale, {
-      style: "currency",
-      currency: currency,
-    });
 
     //Função que faz o somatório de todos os valores
     for (let index in order) {
@@ -47,7 +49,7 @@ class Carrinho extends Component {
         <div className="content">
           <ul>{orderResume}</ul>
           <div className="valueTotal">
-            <span> total</span>
+            <h4> total</h4>
             <span>{orderTotalFormatted}</span>
           </div>
         </div>

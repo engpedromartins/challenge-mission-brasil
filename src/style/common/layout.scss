@@ -92,6 +92,7 @@ label {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
 }
 .cards-item {
   display: flex;
@@ -122,4 +123,10 @@ label {
 
 a {
   cursor: pointer;
+}
+.valueTotal {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: baseline;
 }
