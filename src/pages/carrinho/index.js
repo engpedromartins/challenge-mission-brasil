@@ -6,8 +6,11 @@ class Carrinho extends Component {
     this.state = {
       data: [],
     };
+    this.handleGoHome = this.handleGoHome.bind(this);
   }
-  componentDidMount() {}
+  handleGoHome() {
+    this.props.history.push(process.env.PUBLIC_URL + `/cadastroproduto`);
+  }
 
   render() {
     const locale = "pt-BR";
@@ -56,6 +59,9 @@ class Carrinho extends Component {
             </div>
           </div>
         </div>
+        <small>
+          <a onClick={this.handleGoHome}>Voltar para cadastro de produtos</a>
+        </small>
       </div>
     );
   }
