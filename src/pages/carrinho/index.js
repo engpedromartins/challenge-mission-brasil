@@ -29,6 +29,7 @@ class Carrinho extends Component {
               <div className="cards-item-aligment">
                 <span>{item.name}</span>
                 <small>{price}</small>
+                <br />
               </div>
             </div>
           </li>
@@ -48,9 +49,11 @@ class Carrinho extends Component {
         <h1>Resumo do Pedido</h1>
         <div className="content">
           <ul>{orderResume}</ul>
-          <div className="valueTotal">
-            <h4> total</h4>
-            <span>{orderTotalFormatted}</span>
+          <div>
+            <div className="valueTotal">
+              <h4> total</h4>
+              <span>{orderTotalFormatted}</span>
+            </div>
           </div>
         </div>
       </div>

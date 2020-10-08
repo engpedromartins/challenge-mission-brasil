@@ -13,7 +13,6 @@ class CadastroProduto extends Component {
   componentDidMount() {
     if (this.props.location.list) {
       let products = this.props.location.list.products;
-      console.log("aa ", products);
       this.setState({
         listProducts: products,
       });

@@ -90,6 +90,16 @@ label {
   width: 350px;
   height: 400px;
   display: flex;
+  //justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.content-home {
+  border: 1px#1890ff solid;
+  border-radius: 15px;
+  width: 350px;
+  height: 400px;
+  display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
@@ -109,6 +119,7 @@ label {
   flex-direction: row;
   justify-content: space-between;
   align-items: baseline;
+  width: 250px;
 
   small {
     margin: 0;
@@ -129,4 +140,9 @@ a {
   flex-direction: row;
   justify-content: space-between;
   align-items: baseline;
+  width: 250px;
+  border-top: 1px solid blue;
+  span {
+    font-size: 15px;
+  }
 }
