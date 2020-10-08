@@ -12,7 +12,6 @@ class CadastroProduto extends Component {
   }
   componentDidMount() {
     if (this.props.location.list) {
-      console.log("ENTREI");
       let products = this.props.location.list.products;
       console.log("aa ", products);
       this.setState({
@@ -26,12 +25,14 @@ class CadastroProduto extends Component {
     let price = valuePrice;
     let key = valueKey;
 
-    this.state({
+    this.setState({
       productsSelected: [
         ...this.state.productsSelected,
         { key: key, name: name, price: price },
       ],
     });
+
+    alert("Produto aticionado ao carrinho.");
   }
   navigationToCart() {
     let productsSelected = this.state.productsSelected;
@@ -43,8 +44,9 @@ class CadastroProduto extends Component {
   }
 
   render() {
-    if (this.props.location.list) {
-      var lista = this.props.location.list.products.map((item, key) => {
+    let list = this.props.location.list.products;
+    if (list) {
+      var showList = list.map((item, key) => {
         return (
           <li key={key}>
             <div className="cards-item">
@@ -53,7 +55,7 @@ class CadastroProduto extends Component {
                 <small>{item.price}</small>
               </div>
               <small>
-                <a onClick={() => this.handleAdd(item.name, item.pricem, key)}>
+                <a onClick={() => this.handleAdd(item.name, item.price, key)}>
                   <FaCartPlus />
                   Adicionar ao carrinho{" "}
                 </a>
@@ -68,7 +70,7 @@ class CadastroProduto extends Component {
       <div className="container">
         <h1>Lista de Produtos</h1>
         <div className="content">
-          <ul>{lista}</ul>
+          <ul>{showList}</ul>
         </div>
         <div>
           <small>
